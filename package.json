@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "tya.js",
-  "type": "module",               // ✅ thêm vào để Node hiểu là ESModule
+  "type": "module",           
   "scripts": {
-    "start": "node tya.js"        // ✅ chạy đúng file
+    "start": "node tya.js"        
   },
   "keywords": [],
   "author": "",
