@@ -1,0 +1,34 @@
+{
+  "dependencies": {
+    "@sparticuz/chromium": "^138.0.2",
+    "axios": "^1.11.0",
+    "cors": "^2.8.5",
+    "discord.js": "^14.19.3",
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "googleapis": "^148.0.0",
+    "node-fetch": "^3.3.2",
+    "p-limit": "^6.2.0",
+    "path": "^0.12.7",
+    "puppeteer-core": "^24.17.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "socket.io-client": "^4.8.1"
+  },
+  "name": "autobot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^4.1.8"
+  }
+}
