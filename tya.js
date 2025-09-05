@@ -16,11 +16,8 @@ const BASE_HEADERS = {
   referer: "https://www.midasbuy.com/midasbuy/us/buy/hok",
 };
 
-// ⚡ Launch Chromium (Render-compatible)
 async function launchBrowser() {
-  const executablePath =
-    (await chromium.executablePath) ||
-    "/usr/bin/chromium-browser"; // fallback local dev
+  const executablePath = await chromium.executablePath; // chỉ dùng cái này
 
   return puppeteer.launch({
     args: chromium.args,
@@ -29,6 +26,7 @@ async function launchBrowser() {
     ignoreHTTPSErrors: true,
   });
 }
+
 
 // ⚡ Sinh payload từ UID
 async function generatePayload(uid) {
@@ -96,3 +94,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>
   console.log(`✅ Server running on http://localhost:${PORT}`)
 );
+
