@@ -6,7 +6,7 @@ import cors from "cors";
 
 const app = express();
 app.use(express.json());
-app.use(cors()); // ✅ Cho phép gọi từ frontend
+app.use(cors()); // Cho phép gọi từ frontend
 
 const BASE_HEADERS = {
   accept: "application/json, text/plain, */*",
@@ -18,7 +18,10 @@ const BASE_HEADERS = {
 
 // ⚡ Launch Chromium (Render-compatible)
 async function launchBrowser() {
-  const executablePath = (await chromium.executablePath) || chromium.path;
+  const executablePath =
+    (await chromium.executablePath) ||
+    "/usr/bin/chromium-browser"; // fallback local dev
+
   return puppeteer.launch({
     args: chromium.args,
     executablePath,
@@ -32,7 +35,6 @@ async function generatePayload(uid) {
   const browser = await launchBrowser();
   try {
     const page = await browser.newPage();
-
     await page.goto("https://www.midasbuy.com/midasbuy/us/buy/hok", {
       waitUntil: "networkidle2",
     });
@@ -59,7 +61,7 @@ async function generatePayload(uid) {
 
     return payload;
   } finally {
-    await browser.close(); // ✅ đảm bảo luôn đóng browser
+    await browser.close(); // Đảm bảo browser luôn được đóng
   }
 }
 
@@ -85,7 +87,7 @@ app.post("/api/hok", async (req, res) => {
     const data = await fetchCharac(uid);
     res.json(data);
   } catch (err) {
-    console.error("❌ API error:", err);
+    console.error("❌ API error:", err.response?.data || err.message);
     res.status(500).json({ error: err.message });
   }
 });
