@@ -22,7 +22,6 @@
     "https-proxy-agent": "^7.0.6",
     "mongodb": "^6.19.0",
     "proxifly": "^2.0.2",
-    "dependencies": {
     "puppeteer-core": "^10.4.0",
     "chrome-aws-lambda": "^10.1.0"
   },
